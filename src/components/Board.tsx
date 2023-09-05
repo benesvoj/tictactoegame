@@ -1,5 +1,5 @@
-import { Square } from "./Square";
-import styled from "styled-components";
+import { Square } from './Square';
+import styled from 'styled-components';
 
 interface BoardProps {
   squares: string[];
@@ -13,8 +13,8 @@ export const Board = (props: BoardProps) => {
 
   let status;
   winner
-    ? (status = <WinnerDiv>{"Winner: " + winner}</WinnerDiv>)
-    : (status = "Next player: " + (xIsNext ? "X" : "O"));
+    ? (status = <WinnerDiv>{'Winner: ' + winner}</WinnerDiv>)
+    : (status = 'Next player: ' + (xIsNext ? 'X' : 'O'));
 
   return (
     <>
@@ -43,4 +43,5 @@ const StatusDiv = styled.div`
 const BoardDiv = styled.div`
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+  grid-gap: 2px;
 `;

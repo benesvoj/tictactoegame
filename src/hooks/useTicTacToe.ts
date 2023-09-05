@@ -8,6 +8,7 @@ interface ReturnValue {
   currentSquares: string[];
   history: string[][];
   jumpTo: (nextMove: number) => void;
+  gameReset: () => void;
 }
 export default (): ReturnValue => {
   const [history, setHistory] = useState([Array(9).fill(null)]);
@@ -61,5 +62,18 @@ export default (): ReturnValue => {
     setCurrentMove(nextMove);
   };
 
-  return { handleClick, winner, xIsNext, currentSquares, history, jumpTo };
+  const gameReset = () => {
+    setHistory([Array(9).fill(null)]);
+    setCurrentMove(0);
+  };
+
+  return {
+    handleClick,
+    winner,
+    xIsNext,
+    currentSquares,
+    history,
+    jumpTo,
+    gameReset
+  };
 };
